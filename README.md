@@ -28,6 +28,7 @@ This project uses the following technologies:
 - [component-material](https://github.com/pmndrs/component-material)
 - [babel-plugin-glsl](https://github.com/onnovisser/babel-plugin-glsl)
 - [use-tweaks](https://github.com/pmndrs/use-tweaks)
+- WebGL
 - JSX
 - JavaScript ES6
 - git/GitHub
