@@ -17,3 +17,16 @@ body,
   overflow: auto;
   background: #000000;
 }
+
+#root > a {
+  position: absolute;
+  top: 25px;
+  left: 0px;
+  transform: scale(1.25);
+
+  @media screen and (min-width: 426px) {
+    top: 50px;
+    left: 50px;
+    transform: scale(1.75);
+  }
+}

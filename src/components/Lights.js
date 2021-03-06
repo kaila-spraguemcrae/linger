@@ -3,6 +3,7 @@ function Lights(){
     <spotLight
       position={[5, 5, 5]}
       intensity={1}
+      onUpdate={(self) => self.lookAt(0, 0, 0)}
     />
   );
 }
