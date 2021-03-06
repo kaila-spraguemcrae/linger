@@ -57,7 +57,26 @@ function SphereObj({ radius = 4 }){
           `
           }
         </Material.Vert.Head>
-        
+
+        <Material.Vert.Body>
+          {
+          `
+            float updateTime = time / 10.0;
+            transformed = distortFunct(transformed, 1.0);
+            vec3 distortedNormal = distortNormal(position, transformed, normal);
+            vNormal = normal + distortedNormal;
+            gl_Position = projectionMatrix * modelViewMatrix * vec4(transformed, 1.);
+          `
+          }
+        </Material.Vert.Body>
+
+        <Material.Frag.Body>
+          {
+          `
+            gl_FragColor = vec4(gl_FragColor.rgb * color, gl_FragColor.a);
+          `
+          }
+        </Material.Frag.Body>
       </Material>
     </Sphere>
   );
