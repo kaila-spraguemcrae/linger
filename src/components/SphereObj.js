@@ -3,16 +3,19 @@ import { useFrame } from 'react-three-fiber';
 import Material from 'component-material';
 import { Sphere } from '@react-three/drei';
 import glsl from 'babel-plugin-glsl/macro';
-import { Color } from "three";
+// import { Color } from "three";
 import { useTweaks } from 'use-tweaks';
+import { Color } from 'three';
 
 function SphereObj({ radius = 4 }){
   const material = useRef();
   const {
+    color,
     radiusVariationAmplitude,
     radiusNoiseFrequency,
     ...props
   } = useTweaks({
+    color: "#fff",
     metalness: { value: 0.9, min: 0, max: 1 },
     clearcoat: { value: 0.1, min: 0, max: 1 },
     roughness: { value: 0.7, min: 0, max: 1 },
@@ -31,7 +34,7 @@ function SphereObj({ radius = 4 }){
         uniforms={{
           radius: { value: radius, type: "float"},
           time: { value: 0, type: "float" },
-          color: { value: new Color ("white"), type: "vec3"},
+          color: { value: new Color(color), type: "vec3" },
           radiusVariationAmplitude: {
             value: radiusVariationAmplitude, type: "float" 
           },
@@ -40,6 +43,7 @@ function SphereObj({ radius = 4 }){
           }
         }}
       > 
+      console.log(color);
         <Material.Vert.Head>
           {
             /*glsl*/ glsl`

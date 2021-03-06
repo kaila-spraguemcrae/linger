@@ -11,8 +11,8 @@ function App() {
       <SphereObj/>
       <Suspense fallback={null}>
         <Environment 
-        files='https://rawcdn.githack.com/emmelleppi/component-material/9c967a77c15c84ee5c0be417c4440f6bdcebdb2f/example/studio_small_04_1k.hdr' 
-        path='' />
+        files='studio_lights.hdr' 
+        />
       </Suspense>
     </Canvas>
   );
