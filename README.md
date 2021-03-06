@@ -40,7 +40,7 @@ This project uses the following technologies:
 
 | Date | Error | Handled | Solution |
 | :------------- | :------------- | :------------- | :------------- |
-| 03.05.2020 | 'THREE.WebGLProgram: shader error'// 'there is no texture bound to the unit 0' | ❌ |  |
+| 03.05.2020 | 'THREE.WebGLProgram: shader error'// 'there is no texture bound to the unit 0' | ✅ | typo |
 |  |  |  |  |
 
 -------------------
