@@ -1,13 +1,27 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { useFrame } from 'react-three-fiber';
 import Material from 'component-material';
 import { Sphere } from '@react-three/drei';
 import glsl from 'babel-plugin-glsl/macro';
 import { Color } from "three";
+import { useTweaks } from 'use-tweaks';
 
 function SphereObj({ radius = 4 }){
   const material = useRef();
+  const {
+    radiusVariationAmplitude,
+    radiusNoiseFrequency,
+    ...props
+  } = useTweaks({
+    metalness: { value: 0.9, min: 0, max: 1 },
+    clearcoat: { value: 0.1, min: 0, max: 1 },
+    roughness: { value: 0.7, min: 0, max: 1 },
+    envMapIntensity: { value: 1, min: 0, max: 1 },
+    radiusVariationAmplitude: { value: 1, min: 0, max: 5 },
+    radiusNoiseFrequency: { value: 0.3, min: 0, max: 2 }
+  });
 
+  useFrame(({ clock }) => (material.current.time = clock.getElapsedTime()));
 
   return (
     <Sphere args={[radius, 512, 512]}>
@@ -17,7 +31,7 @@ function SphereObj({ radius = 4 }){
         uniforms={{
           radius: { value: radius, type: "float"},
           time: { value: 0, type: "float" },
-          color: { value: new Color ("red"), type: "vec3"},
+          color: { value: new Color ("white"), type: "vec3"},
           radiusVariationAmplitude: {
             value: radiusVariationAmplitude, type: "float" 
           },
@@ -28,7 +42,7 @@ function SphereObj({ radius = 4 }){
       > 
         <Material.Vert.Head>
           {
-            glsl`
+            /*glsl*/ glsl`
             #pragma glslify: snoise = require(glsl-noise-simplex/3d.glsl)
             float fsnoise(float val1, float val2, float val3){
               return snoise(vec3(val1,val2,val3));
@@ -60,7 +74,7 @@ function SphereObj({ radius = 4 }){
 
         <Material.Vert.Body>
           {
-          `
+          /*glsl*/ `
             float updateTime = time / 10.0;
             transformed = distortFunct(transformed, 1.0);
             vec3 distortedNormal = distortNormal(position, transformed, normal);
@@ -72,7 +86,7 @@ function SphereObj({ radius = 4 }){
 
         <Material.Frag.Body>
           {
-          `
+          /*glsl*/ `
             gl_FragColor = vec4(gl_FragColor.rgb * color, gl_FragColor.a);
           `
           }
