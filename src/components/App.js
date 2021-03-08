@@ -1,8 +1,9 @@
 import React, { Suspense } from 'react';
 import { Canvas } from 'react-three-fiber';
-import { Environment } from '@react-three/drei';
+import { Environment, OrbitControls } from '@react-three/drei';
 import Lights from './Lights';
 import SphereObj from './SphereObj';
+import CustomSky from './CustomSky';
 
 function App() {
   return (
@@ -10,12 +11,14 @@ function App() {
       <Lights/>
       <SphereObj/>
       <Suspense fallback={null}>
-        <Environment 
-        files='studio_lights.hdr' 
+        <Environment
+        scene={} 
         />
       </Suspense>
+      <OrbitControls/>
     </Canvas>
   );
 }
 
 export default App;
+// files='studio_lights.hdr' 
