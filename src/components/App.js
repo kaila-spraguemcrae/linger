@@ -8,13 +8,11 @@ import { WebGLCubeRenderTarget } from 'three';
 
 function App() {
   return (
-    <Canvas camera= {{position: [0, 0, 20], near: 0.1, far: 100, fov: 50}}>
+    <Canvas camera= {{position: [5, 20, 30], near: 0.1, fov: 60}}>
       <CustomSky/>
-      <SphereObj envMap = {WebGLCubeRenderTarget.CustomSky}/> 
+      <SphereObj /> 
       {/* <Suspense fallback={null}>
-        <Environment
-          scene={CustomSky} 
-        />
+        <Environment/>
       </Suspense> */}
       <OrbitControls/>
     </Canvas>
@@ -22,4 +20,4 @@ function App() {
 }
 
 export default App;
-// files='studio_lights.hdr' 
+// files='studio_lights.hdr'az
