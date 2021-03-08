@@ -3,7 +3,6 @@ import { useFrame } from 'react-three-fiber';
 import Material from 'component-material';
 import { Sphere } from '@react-three/drei';
 import glsl from 'babel-plugin-glsl/macro';
-// import { Color } from "three";
 import { useTweaks } from 'use-tweaks';
 import { Color } from 'three';
 
