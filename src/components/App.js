@@ -9,14 +9,13 @@ import { WebGLCubeRenderTarget } from 'three';
 function App() {
   return (
     <Canvas camera= {{position: [0, 0, 20], near: 0.1, far: 100, fov: 50}}>
-      {/* <Lights/> */}
+      <CustomSky/>
       <SphereObj envMap = {WebGLCubeRenderTarget.CustomSky}/> 
       {/* <Suspense fallback={null}>
         <Environment
           scene={CustomSky} 
         />
       </Suspense> */}
-      <CustomSky/>
       <OrbitControls/>
     </Canvas>
   );
