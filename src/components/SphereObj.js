@@ -5,9 +5,12 @@ import { Sphere } from '@react-three/drei';
 import glsl from 'babel-plugin-glsl/macro';
 import { useTweaks } from 'use-tweaks';
 import { Color } from 'three';
+import { WebGLCubeRenderTarget } from 'three';
+import CustomSky from './CustomSky';
 
 function SphereObj({ radius = 4 }){
   const material = useRef();
+  // const mesh = useRef();
   const {
     color,
     radiusVariationAmplitude,
@@ -26,7 +29,8 @@ function SphereObj({ radius = 4 }){
   useFrame(({ clock }) => (material.current.time = clock.getElapsedTime()));
 
   return (
-    <Sphere args={[radius, 512, 512]}>
+    <Sphere args={[radius, 512, 512]} position-y={10} envMap = {WebGLCubeRenderTarget.CustomSky}>
+    
       <Material
         ref={material}
         {...props}
