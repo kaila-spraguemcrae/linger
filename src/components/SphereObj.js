@@ -15,6 +15,17 @@ import {
 
 function SphereObj({ radius = 4 }){
 
+  const { scene, gl } = useThree();
+  const cubeRenderTarget = new WebGLCubeRenderTarget(256, {
+    format: RGBFormat,
+    generateMipmaps: true,
+    minFilter: LinearMipmapLinearFilter,
+  });
+  const cubeCamera = new CubeCamera(1, 1000, cubeRenderTarget);
+  cubeCamera.position.set(0, 100, 0);
+  scene.add(cubeCamera);
+  useFrame(() => cubeCamera.update(gl, scene));
+
   const material = useRef();
   // const mesh = useRef();
   const {
@@ -27,7 +38,7 @@ function SphereObj({ radius = 4 }){
     metalness: { value: 0.9, min: 0, max: 1 },
     clearcoat: { value: 0.1, min: 0, max: 1 },
     roughness: { value: 0.7, min: 0, max: 1 },
-    envMapIntensity: { value: 1, min: 0, max: 1 },
+    // envMapIntensity: { value: 1, min: 0, max: 1 },
     radiusVariationAmplitude: { value: 1, min: 0, max: 5 },
     radiusNoiseFrequency: { value: 0.3, min: 0, max: 2 }
   });
@@ -38,6 +49,7 @@ function SphereObj({ radius = 4 }){
     <Sphere args={[radius, 512, 512]} position-y={10}>
     
       <Material
+        envMap={cubeCamera.renderTarget.texture}
         ref={material}
         {...props}
         uniforms={{

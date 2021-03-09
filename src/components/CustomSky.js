@@ -5,7 +5,7 @@ import { useTweaks } from 'use-tweaks';
 import { useFrame } from 'react-three-fiber';
 import SkyBox from './SkyBox';
 import { useThree } from "react-three-fiber";
-import { CubeTextureLoader } from "three";
+import { TextureLoader } from "three";
 
 function CustomSky() {
   const { scene } = useThree();
@@ -21,8 +21,13 @@ function CustomSky() {
     intensity: {value: 0.5, min: 0, max: 1}
   });
 
+  const loader = new TextureLoader();
+  
+  const texture = loader.load(Sky);
+
   scene.background = Sky;
   scene.environment = Sky;
+  console.log(Sky.uniform);
 
   const theta = Math.PI * (inclination - 0.5)
   const phi = 2 * Math.PI * (azimuth - 0.5)

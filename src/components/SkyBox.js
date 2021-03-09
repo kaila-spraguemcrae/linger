@@ -17,6 +17,8 @@ function SkyBox() {
 
   // scene.background = texture;
   // scene.environment = texture;
+  // console.log(scene.environment);
+
   return null;
 }
 
