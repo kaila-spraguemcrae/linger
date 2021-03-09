@@ -38,6 +38,7 @@ function CustomSky() {
       <directionalLight
         ref={material}
         position={[x, y, z]}
+        color={0xfffadb}
         intensity={intensity}
       />
       <Plane rotation-x={Math.PI / 2} args={[100, 100, 4, 4]}>
