@@ -3,6 +3,7 @@ import { Sky, Plane } from '@react-three/drei';
 import * as THREE from 'three';
 import { useTweaks } from 'use-tweaks';
 import { useFrame } from 'react-three-fiber';
+import SkyBox from './SkyBox';
 
 function CustomSky() {
 
