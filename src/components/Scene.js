@@ -3,8 +3,6 @@ import {Canvas, useThree, useFrame } from 'react-three-fiber'
 import { OrbitControls } from '@react-three/drei';
 import SphereObj from './SphereObj';
 import CustomSky from './CustomSky';
-import SkyBox from './SkyBox';
-
 
 export default function Scene(props) {
 
@@ -28,7 +26,6 @@ export default function Scene(props) {
   return (
     <Canvas camera= {{position: [-15, 20, 30], near: 0.1, fov: 60}} >
       <CustomSky/>
-      <SkyBox />
       <SphereObj /> 
       <OrbitControls/>
     </Canvas>

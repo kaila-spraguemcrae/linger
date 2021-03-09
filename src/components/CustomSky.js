@@ -1,18 +1,11 @@
 import React, { useRef } from 'react';
 import { Sky, Plane } from '@react-three/drei';
-import * as THREE from 'three';
 import { useTweaks } from 'use-tweaks';
 import { useFrame } from 'react-three-fiber';
-import SkyBox from './SkyBox';
-import { useThree } from "react-three-fiber";
-import { TextureLoader } from "three";
 
 function CustomSky() {
-  const { scene } = useThree();
   useFrame(({ clock }) => (material.current.time = clock.getElapsedTime()));
   const material = useRef();
-  const light = useRef();
-  const mesh = useRef();
   const { inclination, azimuth, rayleigh, turbidity, intensity} = useTweaks({
     inclination:{ value: 0.5, min: 0, max: 1},
     azimuth:{ value: 0.25, min: 0, max: 1},
@@ -20,14 +13,6 @@ function CustomSky() {
     turbidity: {value: 0.6, min: 0, max: 1},
     intensity: {value: 0.5, min: 0, max: 1}
   });
-
-  const loader = new TextureLoader();
-  
-  const texture = loader.load(Sky);
-
-  scene.background = Sky;
-  scene.environment = Sky;
-  console.log(Sky.uniform);
 
   const theta = Math.PI * (inclination - 0.5)
   const phi = 2 * Math.PI * (azimuth - 0.5)
