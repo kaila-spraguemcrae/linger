@@ -6,7 +6,6 @@ import glsl from 'babel-plugin-glsl/macro';
 import { useTweaks } from 'use-tweaks';
 import { Color } from 'three';
 import { WebGLCubeRenderTarget } from 'three';
-import CustomSky from './CustomSky';
 
 function SphereObj({ radius = 4 }){
   const material = useRef();
@@ -21,7 +20,7 @@ function SphereObj({ radius = 4 }){
     metalness: { value: 0.9, min: 0, max: 1 },
     clearcoat: { value: 0.1, min: 0, max: 1 },
     roughness: { value: 0.7, min: 0, max: 1 },
-    envMapIntensity: { value: 1, min: 0, max: 1 },
+    // envMapIntensity: { value: 1, min: 0, max: 1 },
     radiusVariationAmplitude: { value: 1, min: 0, max: 5 },
     radiusNoiseFrequency: { value: 0.3, min: 0, max: 2 }
   });

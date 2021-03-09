@@ -19,4 +19,3 @@ function App() {
 }
 
 export default App;
-// files='studio_lights.hdr'az
