@@ -1,12 +1,11 @@
 import React, { useRef } from 'react';
-import { useFrame, useResource, useThree } from 'react-three-fiber';
+import { useFrame, useThree } from 'react-three-fiber';
 import Material from 'component-material';
 import { Sphere } from '@react-three/drei';
 import glsl from 'babel-plugin-glsl/macro';
 import { useTweaks } from 'use-tweaks';
 import {
   Color,
-  CubeTextureLoader,
   CubeCamera,
   WebGLCubeRenderTarget,
   RGBFormat,
@@ -27,7 +26,6 @@ function SphereObj({ radius = 4 }){
   useFrame(() => cubeCamera.update(gl, scene));
 
   const material = useRef();
-  // const mesh = useRef();
   const {
     color,
     radiusVariationAmplitude,
@@ -38,7 +36,6 @@ function SphereObj({ radius = 4 }){
     metalness: { value: 0.9, min: 0, max: 1 },
     clearcoat: { value: 0.1, min: 0, max: 1 },
     roughness: { value: 0.7, min: 0, max: 1 },
-    // envMapIntensity: { value: 1, min: 0, max: 1 },
     radiusVariationAmplitude: { value: 1, min: 0, max: 5 },
     radiusNoiseFrequency: { value: 0.3, min: 0, max: 2 }
   });
@@ -67,7 +64,7 @@ function SphereObj({ radius = 4 }){
       console.log(color);
         <Material.Vert.Head>
           {
-            /*glsl*/ glsl`
+            glsl`
             #pragma glslify: snoise = require(glsl-noise-simplex/3d.glsl)
             float fsnoise(float val1, float val2, float val3){
               return snoise(vec3(val1,val2,val3));
@@ -104,7 +101,7 @@ function SphereObj({ radius = 4 }){
         }</Material.Vert.Head>
 
         <Material.Vert.Body>{
-          /*glsl*/ `
+          `
             float updateTime = time / 10.0;
 
             transformed = distortFunct(transformed, 1.0);
@@ -118,7 +115,7 @@ function SphereObj({ radius = 4 }){
         }</Material.Vert.Body>
 
         <Material.Frag.Body>{
-          /*glsl*/ `
+          `
             gl_FragColor = vec4(gl_FragColor.rgb * color, gl_FragColor.a);
           `
         }</Material.Frag.Body>
