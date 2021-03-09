@@ -4,9 +4,11 @@ import * as THREE from 'three';
 import { useTweaks } from 'use-tweaks';
 import { useFrame } from 'react-three-fiber';
 import SkyBox from './SkyBox';
+import { useThree } from "react-three-fiber";
+import { CubeTextureLoader } from "three";
 
 function CustomSky() {
-
+  const { scene } = useThree();
   useFrame(({ clock }) => (material.current.time = clock.getElapsedTime()));
   const material = useRef();
   const light = useRef();
@@ -18,6 +20,9 @@ function CustomSky() {
     turbidity: {value: 0.6, min: 0, max: 1},
     intensity: {value: 0.5, min: 0, max: 1}
   });
+
+  scene.background = Sky;
+  scene.environment = Sky;
 
   const theta = Math.PI * (inclination - 0.5)
   const phi = 2 * Math.PI * (azimuth - 0.5)

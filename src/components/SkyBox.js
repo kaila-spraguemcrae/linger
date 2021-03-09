@@ -15,8 +15,8 @@ function SkyBox() {
     "/bluecloud_rt.jpg",
   ]);
 
-  scene.background = texture;
-  scene.environment = texture;
+  // scene.background = texture;
+  // scene.environment = texture;
   return null;
 }
 
