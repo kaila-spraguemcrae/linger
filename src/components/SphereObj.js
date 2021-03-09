@@ -1,13 +1,31 @@
 import React, { useRef } from 'react';
-import { useFrame } from 'react-three-fiber';
+import { useFrame, useResource, useThree } from 'react-three-fiber';
 import Material from 'component-material';
 import { Sphere } from '@react-three/drei';
 import glsl from 'babel-plugin-glsl/macro';
 import { useTweaks } from 'use-tweaks';
-import { Color } from 'three';
-import { WebGLCubeRenderTarget } from 'three';
+import {
+  Color,
+  CubeTextureLoader,
+  CubeCamera,
+  WebGLCubeRenderTarget,
+  RGBFormat,
+  LinearMipmapLinearFilter
+} from 'three';
 
 function SphereObj({ radius = 4 }){
+
+  const { scene, gl } = useThree();
+  const cubeRenderTarget = new WebGLCubeRenderTarget(256, {
+    format: RGBFormat,
+    generateMipmaps: true,
+    minFilter: LinearMipmapLinearFilter
+  })
+
+  const cubeCamera = new CubeCamera(1, 1000, cubeRenderTarget);
+  cubeCamera.position.set(0, 0, 0);
+  scene.add(cubeCamera);
+
   const material = useRef();
   // const mesh = useRef();
   const {
@@ -20,7 +38,7 @@ function SphereObj({ radius = 4 }){
     metalness: { value: 0.9, min: 0, max: 1 },
     clearcoat: { value: 0.1, min: 0, max: 1 },
     roughness: { value: 0.7, min: 0, max: 1 },
-    // envMapIntensity: { value: 1, min: 0, max: 1 },
+    envMapIntensity: { value: 1, min: 0, max: 1 },
     radiusVariationAmplitude: { value: 1, min: 0, max: 5 },
     radiusNoiseFrequency: { value: 0.3, min: 0, max: 2 }
   });
@@ -28,9 +46,10 @@ function SphereObj({ radius = 4 }){
   useFrame(({ clock }) => (material.current.time = clock.getElapsedTime()));
 
   return (
-    <Sphere args={[radius, 512, 512]} position-y={10} envMap = {WebGLCubeRenderTarget.CustomSky}>
+    <Sphere args={[radius, 512, 512]} position-y={10}>
     
       <Material
+        envMap={cubeCamera.renderTarget.texture}
         ref={material}
         {...props}
         uniforms={{
