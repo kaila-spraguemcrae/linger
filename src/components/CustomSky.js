@@ -27,13 +27,6 @@ function CustomSky() {
 
   return (
     <>
-      {/* <spotLight ref={light} distance={30} intensity={intensity} color="#FFCC66"> 
-        <mesh position={[azimuth, inclination, 50]}>
-          <sphereBufferGeometry attach="geometry" args={[10, 10, 32]} />
-          <meshBasicMaterial attach="material" color="#FFCC66" />
-        </mesh>
-      </spotLight>  */}
-    
       <Sky
         ref = {material}
         distance={45000}
@@ -42,11 +35,11 @@ function CustomSky() {
         rayleigh={rayleigh}
         turbidity={turbidity}
       />  
-      <spotLight
-      ref= {material}
-      position={[x, y, z]}
-      intensity={intensity}
-    />
+      <directionalLight
+        ref={material}
+        position={[x, y, z]}
+        intensity={intensity}
+      />
       <Plane rotation-x={Math.PI / 2} args={[100, 100, 4, 4]}>
         <meshBasicMaterial color="black" wireframe attach="material" />
       </Plane>
