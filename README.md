@@ -29,6 +29,7 @@ This project uses the following technologies:
 - [babel-plugin-glsl](https://github.com/onnovisser/babel-plugin-glsl)
 - [use-tweaks](https://github.com/pmndrs/use-tweaks)
 - WebGL
+- glsl & openGL
 - JSX
 - JavaScript ES6
 - git/GitHub

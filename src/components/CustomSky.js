@@ -1,15 +1,11 @@
 import React, { useRef } from 'react';
 import { Sky, Plane } from '@react-three/drei';
-import * as THREE from 'three';
 import { useTweaks } from 'use-tweaks';
 import { useFrame } from 'react-three-fiber';
 
 function CustomSky() {
-
   useFrame(({ clock }) => (material.current.time = clock.getElapsedTime()));
   const material = useRef();
-  const light = useRef();
-  const mesh = useRef();
   const { inclination, azimuth, rayleigh, turbidity, intensity} = useTweaks({
     inclination:{ value: 0.5, min: 0, max: 1},
     azimuth:{ value: 0.25, min: 0, max: 1},
@@ -38,6 +34,7 @@ function CustomSky() {
       <directionalLight
         ref={material}
         position={[x, y, z]}
+        color={0xfffadb}
         intensity={intensity}
       />
       <Plane rotation-x={Math.PI / 2} args={[100, 100, 4, 4]}>
