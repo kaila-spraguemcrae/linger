@@ -32,13 +32,25 @@ function CustomSky() {
         turbidity={turbidity}
       />  
       <directionalLight
+        castShadow
         ref={material}
         position={[x, y, z]}
         color={0xfffadb}
         intensity={intensity}
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+        shadow-camera-far={200}
+        shadow-camera-left={-20}
+        shadow-camera-right={20}
+        shadow-camera-top={20}
+        shadow-camera-bottom={-20}
       />
       <Plane rotation-x={Math.PI / 2} args={[100, 100, 4, 4]}>
         <meshBasicMaterial color="black" wireframe attach="material" />
+      </Plane>
+
+      <Plane rotation={[-Math.PI / 2, 0, 0]} position= {[0, 0, 0]} args={[300, 300]} receiveShadow>
+        <shadowMaterial attach="material" opacity={0.4}/>
       </Plane>
     </>
     );

@@ -43,7 +43,7 @@ function SphereObj({ radius = 4 }){
   useFrame(({ clock }) => (material.current.time = clock.getElapsedTime()));
 
   return (
-    <Sphere args={[radius, 512, 512]} position-y={10}>
+    <Sphere args={[radius, 512, 512]} position-y={10} castShadow>
     
       <Material
         envMap={cubeCamera.renderTarget.texture}
