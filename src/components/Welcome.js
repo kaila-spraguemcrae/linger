@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import ReactDOM from "react-dom";
 
 const initialState = {
-  welcome: true
+  welcome: false
 }
 
 function Welcome(){
@@ -11,8 +11,12 @@ function Welcome(){
     setState({welcome: !state.welcome});
   }
   console.log(state)
+  if (state.welcome === true) {
   return (
-    <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
+    <>
+    <h1>hello</h1>
+    
+      <div className="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="false">
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header">
@@ -28,7 +32,15 @@ function Welcome(){
         </div>
       </div>
     </div>
+    </>
   );
+  } else {
+    return (
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" onClick={handleShow}>
+  Launch static backdrop modal
+</button>
+    );
+  }
 }
 
 export default Welcome;

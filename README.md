@@ -57,7 +57,8 @@ This project uses the following technologies:
 | ⬜️ | add more slider options |
 | ✅ | make object refective |
 | ⬜️ | add atmospheric music |
-| ⬜️ | create shadow  |
+| ✅ | create shadow  |
+| ⬜️ | create loading page |
 
 -------------------
 
