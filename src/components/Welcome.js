@@ -1,11 +1,8 @@
-import React, {useState} from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 import * as THREE from 'three';
 import Katsudon from '../Katsudon.json';
 
-// const initialState = {
-//   welcome: false
-// }
+
 
 function Welcome(){
   const font = new THREE.FontLoader().parse(Katsudon);
