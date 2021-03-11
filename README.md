@@ -15,6 +15,8 @@
   By Kaila Sprague McRae
 </p>
 
+<a align = "center" href="https://kaila-spraguemcrae.github.io/linger/">Live Site</a>
+
 --------------------
 
 ## 🛠️ Technologies Used
@@ -37,10 +39,6 @@ This project uses the following technologies:
 
 -------------------
 
-## 🌳 Component Tree 
-
--------------------
-
 ## 📓 MVP & Future Goals
 
 ### MVP
@@ -55,7 +53,7 @@ This project uses the following technologies:
 | :------------- | :------------- | 
 | ⬜️ | create splash page |
 | ⬜️ | add more slider options |
-| ✅ | make object refective |
+| ✅ | make object reflective |
 | ⬜️ | add atmospheric music |
 | ✅ | create shadow  |
 | ⬜️ | create loading page |
