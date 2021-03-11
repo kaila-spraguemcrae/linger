@@ -18,6 +18,7 @@
 <p align = "center">
 <a href="https://kaila-spraguemcrae.github.io/linger/">Live Site</a>
 </p>
+
 --------------------
 
 ## 🛠️ Technologies Used
