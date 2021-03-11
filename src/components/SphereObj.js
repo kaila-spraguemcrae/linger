@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { useFrame, useThree } from 'react-three-fiber';
 import Material from 'component-material';
 import { Sphere } from '@react-three/drei';
@@ -13,6 +13,14 @@ import {
 } from 'three';
 
 function SphereObj({ radius = 4 }){
+
+  // const [state] = useState()
+  // useFrame((state) => {
+  //   state.camera.lookAt(0,0,0);
+    
+  // })
+
+  // console.log(state.camera);
 
   const { scene, gl } = useThree();
   const cubeRenderTarget = new WebGLCubeRenderTarget(256, {
