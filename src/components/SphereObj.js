@@ -14,14 +14,6 @@ import {
 
 function SphereObj({ radius = 4 }){
 
-  // const [state] = useState()
-  // useFrame((state) => {
-  //   state.camera.lookAt(0,0,0);
-
-  // })
-
-  // console.log(state.camera);
-
   const { scene, gl } = useThree();
   const cubeRenderTarget = new WebGLCubeRenderTarget(256, {
     format: RGBFormat,

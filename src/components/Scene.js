@@ -1,17 +1,23 @@
 import React from 'react'
-import { Canvas, useFrame } from 'react-three-fiber'
-import { OrbitControls, softShadows } from '@react-three/drei';
+import { Canvas, useFrame, useUpdate } from 'react-three-fiber'
+import { OrbitControls, softShadows, PerspectiveCamera } from '@react-three/drei';
 import SphereObj from './SphereObj';
 import CustomSky from './CustomSky';
 import Welcome from './Welcome';
+import * as THREE from 'three'
 
-export default function Scene() {
+export default function Scene({}) {
   softShadows()
-  // useFrame((state) => {
-  //   state.camera.lookAt(0,0,0)
-  // })
+  const { fov, up, lookAt } = camera
+  const ref = useUpdate( (pcam) => {
+    console.log( `lookAt is ${lookAt}`)
+    pcam.lookAt( new THREE.Vector3( ...lookAt ) )
+  }, [ lookAt ] )
   return (
-    <Canvas shadowMap colorManagement camera= {{position: [-15, 20, 30], near: 0.1, fov: 60}} >
+    <Canvas shadowMap colorManagement>
+      <PerspectiveCamera ref={ref} makeDefault position={[-15,35,30]}  {...{fov, up}}>
+        <mesh/>
+      </PerspectiveCamera>
       <Welcome/>
       <CustomSky/>
       <SphereObj /> 
@@ -19,3 +25,5 @@ export default function Scene() {
     </Canvas>
   )
 }
+
+// camera= {{position: [-15, 20, 30], near: 0.1, fov: 60}}
