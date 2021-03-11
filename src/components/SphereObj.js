@@ -17,7 +17,7 @@ function SphereObj({ radius = 4 }){
   // const [state] = useState()
   // useFrame((state) => {
   //   state.camera.lookAt(0,0,0);
-    
+
   // })
 
   // console.log(state.camera);
