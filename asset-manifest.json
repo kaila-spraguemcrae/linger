@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/linger/static/css/main.dcc2771c.chunk.css",
+    "main.js": "/linger/static/js/main.1dad19fc.chunk.js",
+    "main.js.map": "/linger/static/js/main.1dad19fc.chunk.js.map",
+    "runtime-main.js": "/linger/static/js/runtime-main.cb50f890.js",
+    "runtime-main.js.map": "/linger/static/js/runtime-main.cb50f890.js.map",
+    "static/js/2.ea3c04ff.chunk.js": "/linger/static/js/2.ea3c04ff.chunk.js",
+    "static/js/2.ea3c04ff.chunk.js.map": "/linger/static/js/2.ea3c04ff.chunk.js.map",
+    "index.html": "/linger/index.html",
+    "static/css/main.dcc2771c.chunk.css.map": "/linger/static/css/main.dcc2771c.chunk.css.map",
+    "static/js/2.ea3c04ff.chunk.js.LICENSE.txt": "/linger/static/js/2.ea3c04ff.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.cb50f890.js",
+    "static/js/2.ea3c04ff.chunk.js",
+    "static/css/main.dcc2771c.chunk.css",
+    "static/js/main.1dad19fc.chunk.js"
+  ]
+}
