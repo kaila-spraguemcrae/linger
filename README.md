@@ -15,8 +15,9 @@
   By Kaila Sprague McRae
 </p>
 
-<a align = "center" href="https://kaila-spraguemcrae.github.io/linger/">Live Site</a>
-
+<p align = "center">
+<a href="https://kaila-spraguemcrae.github.io/linger/">Live Site</a>
+</p>
 --------------------
 
 ## 🛠️ Technologies Used
