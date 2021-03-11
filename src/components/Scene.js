@@ -1,10 +1,8 @@
 import React from 'react'
-import { Canvas, useFrame, useUpdate } from 'react-three-fiber'
+import { Canvas} from 'react-three-fiber'
 import { OrbitControls, softShadows, PerspectiveCamera } from '@react-three/drei';
 import SphereObj from './SphereObj';
 import CustomSky from './CustomSky';
-import Welcome from './Welcome';
-import * as THREE from 'three'
 
 export default function Scene({}) {
   softShadows()
