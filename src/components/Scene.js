@@ -8,17 +8,17 @@ import * as THREE from 'three'
 
 export default function Scene({}) {
   softShadows()
-  const { fov, up, lookAt } = camera
-  const ref = useUpdate( (pcam) => {
-    console.log( `lookAt is ${lookAt}`)
-    pcam.lookAt( new THREE.Vector3( ...lookAt ) )
-  }, [ lookAt ] )
+  // const { fov, up, lookAt } = camera
+  // const ref = useUpdate( (pcam) => {
+  //   console.log( `lookAt is ${lookAt}`)
+  //   pcam.lookAt( new THREE.Vector3( ...lookAt ) )
+  // }, [ lookAt ] )
   return (
     <Canvas shadowMap colorManagement>
-      <PerspectiveCamera ref={ref} makeDefault position={[-15,35,30]}  {...{fov, up}}>
+      <PerspectiveCamera makeDefault position={[-15,20,30]} fov={70} >
         <mesh/>
       </PerspectiveCamera>
-      <Welcome/>
+      {/* <Welcome/> */}
       <CustomSky/>
       <SphereObj /> 
       <OrbitControls/>
