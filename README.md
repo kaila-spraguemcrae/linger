@@ -21,6 +21,8 @@
 
 --------------------
 
+![initial state](https://media.giphy.com/media/iX5WqdLoWoCeLX5Rid/giphy.gif)
+
 ## 🛠️ Technologies Used
 
 This project uses the following technologies:
@@ -38,6 +40,25 @@ This project uses the following technologies:
 - JavaScript ES6
 - git/GitHub
 - VS Code
+
+-------------------
+## Demo
+
+#### Using Tweakpane slider to change the sphere
+
+![slider](https://media.giphy.com/media/HObkxrufNa95rnEkV3/giphy.gif)
+
+#### Using Tweakpane slider to change the material of the sphere
+
+![material](https://media.giphy.com/media/aFKXUhxQQd9hLO03o0/giphy.gif)
+
+#### Using Tweakpane slider to change light source
+
+![light](https://media.giphy.com/media/oZc9Q5hi0NNZhH5fw6/giphy.gif)
+
+#### Using OrbitControls with mouse to look around scene
+
+![OrbitControls](https://media.giphy.com/media/5eBKCXdX4zgLFfzEMV/giphy.gif)
 
 -------------------
 
